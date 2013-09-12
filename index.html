@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Universitapp</title>
+    <meta name="description" content="">
+    <meta name="author" content="Bryan Villafañe (@BryViNu)">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="components/lungo/lungo.css">
+    <link rel="stylesheet" href="components/lungo/theme.lungo.css">
+    <link rel="stylesheet" href="components/lungo/lungo.icon.css">
+</head>
+
+<body class="app">
+    <section id="main" data-transition="slide">
+        <header>
+            <nav class="left">
+                <a href="#features" data-router="aside" data-icon="menu"></a>
+            </nav>
+            <nav class="right">
+                <a href="#sect_anotherAsig" class="button" data-icon="plus" data-label="Añadir Materia" data-router="section"></a>
+            </nav>
+        </header>
+        <article id="art_main" class="active list scroll indented">
+            <ul id="ulAsignatures"></ul>
+        </article>
+    </section>
+
+    <section id="sect_anotherAsig" data-transition="slide">
+        <header data-back="home">
+        </header>
+        <article id="art_anotherAsignature" class="active splash">
+            <div class="form">
+                <fieldset class="radius-top" data-icon="book">
+                    <input type="text" placeholder="Materia" id="txtMateria" />
+                </fieldset>
+                <fieldset class="radius-bottom" data-icon="asterisk">
+                    <input type="tel" placeholder="Semestre" id="txtSemestre" />
+                </fieldset>
+                <fieldset class="radius-bottom" data-icon="asterisk">
+                    <input type="text" placeholder="Salon" id="txtSalon" />
+                </fieldset>
+                <br/>
+                <a href="#" id="aSave" class="button anchor" data-icon="ok" data-label="Guardar" data-action="save"></a>
+            </div>
+        </article>
+    </section>
+
+    <section id="sect_breaks" data-transition="cover">
+        <header>
+            <nav class="left">
+                <a href="#" class="button" id="aLoadRecord" data-icon="cloud-download" data-label="Historial"></a>
+            </nav>
+            <nav class="right">
+                <a href="#sect_newBreak" class="button" data-icon="plus" data-label="Añadir Corte" data-router="section"></a>
+            </nav>
+        </header>
+
+        <article class="active list scroll indented" id="art_breaks"></article>
+
+        <footer>
+            <nav>
+                <a href="#main" data-router="section" class="current" data-icon="home"></a>
+                <!--<a href="#sect_results" data-router="section" data-icon="chevron-up"></a> -->
+            </nav>
+        </footer>
+    </section>
+    <!-- Nuevo Corte-->
+    <section id="sect_newBreak" data-transition="cover">
+        <header>
+            <nav class="left">
+                <a href="#sect_breaks" data-router="section" data-icon="chevron-left"></a>
+            </nav>
+        </header>
+        <article id="art_anotherBreak" class="active splash">
+            <div class="form">
+                <fieldset class="radius-top" data-icon="asterisk">
+                    <input type="tel" placeholder="Corte # ej: 3" id="txtBreak" />
+                </fieldset>
+                <br/>
+                <a href="#" id="aSave" class="button anchor" data-icon="ok" data-label="Agregar" data-action="saveBreak"></a>
+            </div>
+        </article>
+    </section>
+    <!-- Historial de calificaciones para una materia -->
+    <section id="sect_record" data-transition="cover">
+        <header>
+            <nav class="left">
+                <a href="#sect_breaks" data-router="section" data-icon="chevron-left"></a>
+            </nav>
+        </header>
+        <article class="active list scroll indented"></article>
+    </section>
+    <!-- Nueva Calificacion -->
+    <section id="sect_newScore" data-transition="cover">
+        <header>
+            <nav class="left">
+                <a href="#sect_breaks" data-router="section" data-icon="chevron-left"></a>
+            </nav>
+            <p class="title centered">Calificación</p>
+        </header>
+        <article id="art_anotherScore" class="active splash">
+            <div class="form">
+                <label class="select">
+                    <select name="selectType" id="selectType">
+                        <option value="quiz">Quiz</option>
+                        <option value="parcial">Parcial</option>
+                        <option value="taller">Taller</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </label>
+                <fieldset class="radius-top" data-icon="asterisk">
+                    <input type="tel" placeholder="Calificacion Ej: 5.0" id="txtScore" />
+                </fieldset>
+                <br/>
+                <a href="#" id="aSave" class="button anchor" data-icon="ok" data-label="Guardar" data-action="saveScore"></a>
+            </div>
+        </article>
+    </section>
+    <!-- Opciones -->
+    <section id="sect_config" data-transition="slide">
+        <header>
+            <nav class="left">
+                <a href="#main" data-router="section" data-icon="chevron-left"></a>
+            </nav>
+        </header>
+        <article id="art_anotherScore" class="active splash">
+            <div class="form">
+                <fieldset class="radius-top" data-icon="asterisk">
+                    <input type="text" placeholder="Valor 1er corte ej: 30" id="txtPriBreak" />
+                </fieldset>
+                <fieldset data-icon="asterisk">
+                    <input type="text" placeholder="Valor 2do corte ej: 30" id="txtSeconBreak" />
+                </fieldset>
+                <fieldset class="radius-bottom shadow" data-icon="asterisk">
+                    <input type="text" placeholder="Valor 3er corte ej: 40" id="txtThiBreak" />
+                </fieldset>
+                <br/>
+                <a href="#" id="aSave" class="button anchor" data-icon="ok" data-label="Guardar" data-action="saveConfigBreak"></a>
+            </div>
+        </article>
+    </section>
+    <aside id="features">
+        <header data-title="Opciones"></header>
+        <article class="list scroll active">
+            <ul>
+                <li id="liBreakConfig">
+                    <a href="#sect_config" data-router="section" data-icon="flag">
+                        <strong>% de cada corte</strong>
+                    </a>
+                </li>
+                <li>
+                    <a href="#sect_config" data-router="section" data-icon="asterisk">
+                        <strong>Valor actividad</strong>
+                    </a>
+                </li>
+            </ul>
+        </article>
+    </aside>
+
+    <!-- Lungo - Dependencies -->
+    <script src="components/quojs/quo.js"></script>
+    <script src="components/lungo/lungo.js"></script>
+    <script src="components/moment.js"></script>
+    <script src="components/monocle.js"></script>
+
+    <script src="app/monocle/model/asignature.js"></script>
+    <script src="app/monocle/model/breaks.js"></script>
+    <script src="app/monocle/model/score.js"></script>
+    
+    <script src="app/monocle/view/asignature.js"></script>
+    <script src="app/monocle/view/breaks.js"></script>
+    <script src="app/monocle/view/record.js"></script>
+
+    <script src="app/monocle/controller/main.js"></script>
+    <script src="app/monocle/controller/asignature.js"></script>
+    <script src="app/monocle/controller/break.js"></script>
+    <!-- Lungo - Sandbox App -->
+    <script>
+        Lungo.init({
+            name: 'Universitapp'
+        });
+    </script>
+</body>
+</html>
